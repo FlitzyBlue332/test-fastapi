@@ -20,3 +20,10 @@ async def create_mahasiswa(mahasiswa: Mahasiswa):
 @app.get("/mahasiswa/{nim}")
 async def read_mahasiswa(nim):
     return {nim : daftarMahasiswa[nim]}
+
+@app.get("/daftarnim")
+async def read_daftar():
+    string = ""
+    for keys in daftarMahasiswa.keys():
+        string = string + " " + keys
+    return string
